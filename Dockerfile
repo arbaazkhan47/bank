@@ -1,7 +1,7 @@
-FROM ubuntu:18.04
+FROM ubuntu 20.04
 LABEL maintainer="arbaj.khanarbaj45@gmail.com>"
-RUN apt-get update
-COPY ./requirements.txt ./
-WORKDIR /app
-COPY ./app.py ./
-CMD [ "ls"]
+COPY ./app/
+EXPOSE 8000
+WORKDIR /app/
+RUN pip install -r requirements.txt
+CMD python app.py
